@@ -3,17 +3,17 @@ public class Main {
     public static void main(String[] args) {
 
         // Задание 1
-        byte a = 100;
-        short b = 1000;
-        int c = 100000;
-        long d = 10000L;
+        byte _a = 100;
+        short _b = 1000;
+        int _c = 100000;
+        long _d = 10000L;
 
-        float e = 3.5f;
-        double f = 3.5;
+        float _e = 3.5f;
+        double _f = 3.5;
 
         // Задание 2
-        char g = 1000;
-        boolean h = true;
+        char _g = 1000;
+        boolean _h = true;
 
         double firstWeight = 78.2;
         double secondWeight = 82.7;
@@ -75,5 +75,35 @@ public class Main {
                 newDenisSalary, (newDenisSalary - denisSalary) * 12);
         System.out.printf("Кристина теперь получает %d рублей. Годовой доход вырос на %d рублей\n",
                 newKristinaSalary, (newKristinaSalary - kristinaSalary) * 12);
+
+        // Задание 6
+
+        int a = 12;
+        int b = 27;
+        int c = 44;
+        int d = 15;
+        int e = 9;
+
+        int result = a * (b + (c - d * e));
+        result *= -1;
+
+        System.out.println(result);
+
+        // Задание 7
+
+        int a2 = 5;
+        int b2 = 7;
+
+        a2++; a2++;
+        b2--; b2--;
+
+        System.out.printf("%d %d\n", a2, b2);
+
+        // Задание 8
+
+        int a3 = 256;
+        int b3 = a3 / 10 % 10;
+
+        System.out.println(b3);
     }
 }
