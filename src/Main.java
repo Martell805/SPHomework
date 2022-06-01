@@ -1,9 +1,10 @@
+import java.util.Locale;
 import java.util.function.BiFunction;
 
 public class Main {
 
     public static void main(String[] args) {
-        TaskArrays2();
+        TaskStrings();
     }
 
     public static void Task2(){
@@ -159,5 +160,26 @@ public class Main {
             fullName[q] = ((BiFunction<Character, Character, Character>)(itself, dummy) -> itself)
                     .apply(fullName[fullName.length - q - 1], fullName[fullName.length - q - 1] = fullName[q]));  // swap`а нет, пришлось так(
         System.out.println(fullName);
+    }
+
+    public static void TaskStrings(){
+        // Задание 1
+
+        String firstName = "Ivan";
+        String middleName = "Ivanovich";
+        String lastName = "Ivanov";
+        String fullName = lastName + " " + firstName + " " + middleName;
+        System.out.println("ФИО сотрудника — " + fullName);
+
+        // Задание 2
+
+        String uppercaseFullName = fullName.toUpperCase();
+        System.out.println("Данные ФИО сотрудника для заполнения отчета — " + uppercaseFullName);
+
+        // Задание 3
+
+        fullName = "Иванов Семён Семёнович";
+        String allowedFullName = fullName.replace("ё", "е");
+        System.out.println("Данные ФИО сотрудника — " + allowedFullName);
     }
 }
