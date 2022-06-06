@@ -1,10 +1,10 @@
-import java.util.Locale;
+import java.time.LocalDate;
 import java.util.function.BiFunction;
 
 public class Main {
 
     public static void main(String[] args) {
-        TaskStrings();
+        TaskMethods();
     }
 
     public static void Task2(){
@@ -181,5 +181,41 @@ public class Main {
         fullName = "Иванов Семён Семёнович";
         String allowedFullName = fullName.replace("ё", "е");
         System.out.println("Данные ФИО сотрудника — " + allowedFullName);
+    }
+
+    public static void isLeap(int year){
+        System.out.printf("%d год %sявляется високосным\n", year,
+                (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) ? "" : "не ");
+    }
+
+    public static void suitableVersion(int clientDeviceYear, int clientOS){
+        int currentYear = LocalDate.now().getYear();
+
+        System.out.printf("Установите %sверсию приложения для %s по ссылке\n",
+                (clientDeviceYear >= currentYear) ? "" : "облегченную ",
+                (clientOS == 1) ? "Android" : "iOS");
+    }
+
+    public static void deliveryTime(int deliveryDistance){
+        int deliveryTime = 1;
+
+        deliveryTime += (deliveryDistance > 20) ? 1 : 0;
+        deliveryTime += (deliveryDistance > 60) ? 1 : 0;
+
+        System.out.println("Потребуется дней: " + deliveryTime);
+    }
+
+    public static void TaskMethods(){
+        // Задание 1
+
+        isLeap(2004);
+
+        // Задание 2
+
+        suitableVersion(2020, 1);
+
+        // Задание 3
+
+        deliveryTime(95);
     }
 }
