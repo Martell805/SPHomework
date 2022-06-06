@@ -183,12 +183,12 @@ public class Main {
         System.out.println("Данные ФИО сотрудника — " + allowedFullName);
     }
 
-    public static void isLeap(int year){
+    private static void isLeap(int year){
         System.out.printf("%d год %sявляется високосным\n", year,
                 (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) ? "" : "не ");
     }
 
-    public static void suitableVersion(int clientDeviceYear, int clientOS){
+    private static void suitableVersion(int clientDeviceYear, int clientOS){
         int currentYear = LocalDate.now().getYear();
 
         System.out.printf("Установите %sверсию приложения для %s по ссылке\n",
@@ -196,7 +196,7 @@ public class Main {
                 (clientOS == 1) ? "Android" : "iOS");
     }
 
-    public static void deliveryTime(int deliveryDistance){
+    private static void deliveryTime(int deliveryDistance){
         int deliveryTime = 1;
 
         deliveryTime += (deliveryDistance > 20) ? 1 : 0;
