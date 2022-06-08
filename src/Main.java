@@ -4,7 +4,7 @@ import java.util.function.BiFunction;
 public class Main {
 
     public static void main(String[] args) {
-        TaskMethods();
+        TaskObjects();
     }
 
     public static void Task2(){
@@ -217,5 +217,21 @@ public class Main {
         // Задание 3
 
         deliveryTime(95);
+    }
+
+    public static void TaskObjects(){
+        Author author1 = new Author("Author", "1");
+        Author author2 = new Author("Author", "2");
+
+        System.out.println(author1 + " " + author2);
+
+        Book book1 = new Book("Book1", author1, 1999);
+        Book book2 = new Book("Book2", author2, 2004);
+
+        System.out.println(book1 + " " + book2);
+
+        book2.setPublicationYear(2003);
+
+        System.out.println(book2);
     }
 }
