@@ -1,9 +1,11 @@
+package firstCourse;
+
 import java.time.LocalDate;
 import java.util.function.BiFunction;
 
-public class Main {
+public class Main1 {
 
-    public static void main(String[] args) {
+    public static void main1(String[] args) {
         TaskObjects();
     }
 
@@ -220,8 +222,8 @@ public class Main {
     }
 
     public static void TaskObjects(){
-        Author author1 = new Author("Author", "1");
-        Author author2 = new Author("Author", "2");
+        Author author1 = new Author("firstCourse.Author", "1");
+        Author author2 = new Author("firstCourse.Author", "2");
 
         System.out.println(author1 + " " + author2);
 

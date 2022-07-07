@@ -1,3 +1,5 @@
+package firstCourse;
+
 import java.util.Objects;
 
 public class Author {
@@ -19,7 +21,7 @@ public class Author {
 
     @Override
     public String toString() {
-        return "Author{" +
+        return "firstCourse.Author{" +
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 '}';
