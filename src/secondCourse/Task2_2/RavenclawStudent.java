@@ -53,10 +53,21 @@ public class RavenclawStudent extends HogwartsStudent{
     @Override
     public String toString() {
         return "RavenclawStudent{" +
-                "intelligence=" + intelligence +
+                super.toString() +
+                ", intelligence=" + intelligence +
                 ", wisdom=" + wisdom +
                 ", wit=" + wit +
                 ", creativity=" + creativity +
                 '}';
+    }
+
+    public void compareTo(RavenclawStudent other){
+        if(this.getScore() > other.getScore()){
+            System.out.printf("%s лучший Когтевранец, чем %s\n", this.getName(), other.getName());
+        } else if (this.getScore() == other.getScore()){
+            System.out.printf("%s и %s равные Когтевранцы\n", this.getName(), other.getName());
+        } else {
+            System.out.printf("%s лучший Когтевранец, чем %s\n", this.getName(), other.getName());
+        }
     }
 }

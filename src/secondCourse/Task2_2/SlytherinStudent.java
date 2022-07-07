@@ -63,11 +63,22 @@ public class SlytherinStudent extends HogwartsStudent{
     @Override
     public String toString() {
         return "SlytherinStudent{" +
-                "tricky=" + tricky +
+                super.toString() +
+                ", tricky=" + tricky +
                 ", determination=" + determination +
                 ", ambition=" + ambition +
                 ", resourcefulness=" + resourcefulness +
                 ", powerLust=" + powerLust +
                 '}';
+    }
+
+    public void compareTo(SlytherinStudent other){
+        if(this.getScore() > other.getScore()){
+            System.out.printf("%s лучший Слизеринец, чем %s\n", this.getName(), other.getName());
+        } else if (this.getScore() == other.getScore()){
+            System.out.printf("%s и %s равные Слизеринцы\n", this.getName(), other.getName());
+        } else {
+            System.out.printf("%s лучший Слизеринец, чем %s\n", this.getName(), other.getName());
+        }
     }
 }

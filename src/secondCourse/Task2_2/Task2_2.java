@@ -18,7 +18,9 @@ public class Task2_2 {
         RavenclawStudent padma = new RavenclawStudent("Падма Патил", 1, 1, 1, 1, 1, 1);
         RavenclawStudent marcus = new RavenclawStudent("Маркус Белби", 1, 1, 1, 1, 1, 1);
 
-        HogwartsCompareService.compareGryffindorStudents(hermione, ron);
-        HogwartsCompareService.compareHogwartsStudents(draco, zachariah);
+        harry.print();
+
+        hermione.compareTo(ron);
+        draco.compareTo(zachariah);
     }
 }

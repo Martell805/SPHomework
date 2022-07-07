@@ -43,9 +43,20 @@ public class GryffindorStudent extends HogwartsStudent{
     @Override
     public String toString() {
         return "GryffindorStudent{" +
-                "nobility=" + nobility +
+                super.toString() +
+                ", nobility=" + nobility +
                 ", honor=" + honor +
                 ", bravery=" + bravery +
                 '}';
+    }
+
+    public void compareTo(GryffindorStudent other){
+        if(this.getScore() > other.getScore()){
+            System.out.printf("%s лучший Гриффиндорец, чем %s\n", this.getName(), other.getName());
+        } else if (this.getScore() == other.getScore()){
+            System.out.printf("%s и %s равные Гриффиндорцы\n", this.getName(), other.getName());
+        } else {
+            System.out.printf("%s лучший Гриффиндорец, чем %s\n", this.getName(), other.getName());
+        }
     }
 }

@@ -43,9 +43,20 @@ public class HufflepuffStudent extends HogwartsStudent{
     @Override
     public String toString() {
         return "HufflepuffStudent{" +
-                "industriousness=" + industriousness +
+                super.toString() +
+                ", industriousness=" + industriousness +
                 ", loyalty=" + loyalty +
                 ", honesty=" + honesty +
                 '}';
+    }
+
+    public void compareTo(HufflepuffStudent other){
+        if(this.getScore() > other.getScore()){
+            System.out.printf("%s лучший Пуффендуец, чем %s\n", this.getName(), other.getName());
+        } else if (this.getScore() == other.getScore()){
+            System.out.printf("%s и %s равные Пуффендуйцы\n", this.getName(), other.getName());
+        } else {
+            System.out.printf("%s лучший Пуффендуец, чем %s\n", this.getName(), other.getName());
+        }
     }
 }
