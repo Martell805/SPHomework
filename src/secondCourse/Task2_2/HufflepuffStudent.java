@@ -36,7 +36,7 @@ public class HufflepuffStudent extends HogwartsStudent{
         this.honesty = honesty;
     }
 
-    public int getScore(){
+    private int getScore(){
         return getIndustriousness() + getLoyalty() + getHonesty();
     }
 

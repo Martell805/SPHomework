@@ -46,7 +46,7 @@ public class RavenclawStudent extends HogwartsStudent{
         this.creativity = creativity;
     }
 
-    public int getScore(){
+    private int getScore(){
         return getIntelligence() + getWisdom() + getWit() + getCreativity();
     }
 

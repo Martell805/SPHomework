@@ -56,7 +56,7 @@ public class SlytherinStudent extends HogwartsStudent{
         this.powerLust = powerLust;
     }
 
-    public int getScore(){
+    private int getScore(){
         return getTricky() + getDetermination() + getAmbition() + getResourcefulness() + getPowerLust();
     }
 

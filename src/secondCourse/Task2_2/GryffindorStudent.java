@@ -36,7 +36,7 @@ public class GryffindorStudent extends HogwartsStudent{
         this.bravery = bravery;
     }
 
-    public int getScore(){
+    private int getScore(){
         return getNobility() + getHonor() + getBravery();
     }
 

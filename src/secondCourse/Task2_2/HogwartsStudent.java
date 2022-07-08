@@ -35,7 +35,7 @@ abstract public class HogwartsStudent {
         this.transgress = transgress;
     }
 
-    public int getScore(){
+    private int getScore(){
         return magic + transgress;
     }
 
