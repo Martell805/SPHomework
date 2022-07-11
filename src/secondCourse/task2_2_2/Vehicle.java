@@ -1,6 +1,6 @@
 package secondCourse.task2_2_2;
 
-abstract public class Vehicle {
+abstract public class Vehicle{
     private String modelName;
     private int wheelsCount;
 
@@ -11,6 +11,13 @@ abstract public class Vehicle {
 
     public void updateTyre() {
         System.out.println("Меняем покрышку");
+    }
+
+    public void check() {
+        System.out.println("Обслуживаем " + this.getModelName());
+        for (int i = 0; i < this.getWheelsCount(); i++) {
+            this.updateTyre();
+        }
     }
 
     public String getModelName() {
