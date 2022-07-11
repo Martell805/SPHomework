@@ -9,7 +9,9 @@ abstract public class Vehicle {
         this.wheelsCount = wheelsCount;
     }
 
-    public abstract void updateTyre();
+    public void updateTyre() {
+        System.out.println("Меняем покрышку");
+    }
 
     public String getModelName() {
         return modelName;
