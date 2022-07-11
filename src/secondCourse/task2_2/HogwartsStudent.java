@@ -1,4 +1,4 @@
-package secondCourse.Task2_2;
+package secondCourse.task2_2;
 
 abstract public class HogwartsStudent {
     private String name;
