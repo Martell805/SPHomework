@@ -1,4 +1,4 @@
-package secondCourse.Task2_2;
+package secondCourse.task2_2;
 
 public class GryffindorStudent extends HogwartsStudent{
     private int nobility;
