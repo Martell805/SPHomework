@@ -1,9 +1,9 @@
 package secondCourse;
 
-import secondCourse.task2_6.Task2_6;
+import secondCourse.task2_14.Task2_14;
 
 public class Main {
     public static void main(String[] args) {
-        Task2_6.solution();
+        Task2_14.solution();
     }
 }
