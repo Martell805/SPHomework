@@ -1,13 +1,33 @@
-package secondCourse.task2_14;
+package secondCourse.task2_15;
 
 import java.util.NoSuchElementException;
+import java.util.Objects;
 
-public class StringListImpl implements StringList{
+public class IntegerListImpl implements IntegerList {
     private int length;
     private int capacity;
-    private String[] array;
+    private Integer[] array;
+    private boolean sorted = false;
 
-    private void checkItem(String item){
+    private void insertionSort(){
+        for(int lastUnsortedIndex = length - 1; lastUnsortedIndex > 1; lastUnsortedIndex--){
+            int maxIndex = 0;
+            for(int q = 1; q <= lastUnsortedIndex; q++)
+                if (array[q] >= array[maxIndex])
+                    maxIndex = q;
+
+            Integer tmp = array[maxIndex];
+            array[maxIndex] = array[lastUnsortedIndex];
+            array[lastUnsortedIndex] = tmp;
+        }
+    }
+
+    public void sort(){
+        this.insertionSort();
+        this.sorted = true;
+    }
+
+    private void checkItem(Integer item){
         if(item == null){
             throw new NullPointerException();
         }
@@ -25,7 +45,7 @@ public class StringListImpl implements StringList{
         }
 
         this.capacity *= 2;
-        String[] new_array = new String[this.capacity];
+        Integer[] new_array = new Integer[this.capacity];
         System.arraycopy(this.array, 0, new_array, 0, this.length);
         this.array = new_array;
     }
@@ -45,35 +65,36 @@ public class StringListImpl implements StringList{
         length--;
     }
 
-    public StringListImpl(){
+    public IntegerListImpl(){
         this.length = 0;
         this.capacity = 1;
-        this.array = new String[this.capacity];
+        this.array = new Integer[this.capacity];
     }
 
-    public StringListImpl(int n){
+    public IntegerListImpl(int n){
         if(n <= 0){
             throw new IllegalArgumentException();
         }
 
         this.length = 0;
         this.capacity = n;
-        this.array = new String[this.capacity];
+        this.array = new Integer[this.capacity];
     }
 
     @Override
-    public String add(String item) {
+    public Integer add(Integer item) {
         this.checkItem(item);
         this.expandArray();
 
         this.array[this.length] = item;
         this.length++;
+        this.sorted = false;
 
         return item;
     }
 
     @Override
-    public String add(int index, String item) {
+    public Integer add(int index, Integer item) {
         this.checkItem(item);
         this.checkIndex(index);
         this.expandArray();
@@ -81,22 +102,24 @@ public class StringListImpl implements StringList{
         this.shiftArray(index, 1);
 
         this.array[index] = item;
+        this.sorted = false;
 
         return item;
     }
 
     @Override
-    public String set(int index, String item) {
+    public Integer set(int index, Integer item) {
         this.checkItem(item);
         this.checkIndex(index);
 
         this.array[index] = item;
+        this.sorted = false;
 
         return item;
     }
 
     @Override
-    public String remove(String item) {
+    public Integer remove(Integer item) {
         this.checkItem(item);
 
         int index = this.indexOf(item);
@@ -111,19 +134,37 @@ public class StringListImpl implements StringList{
     }
 
     @Override
-    public String remove(int index) {
+    public Integer remove(int index) {
         this.checkIndex(index);
 
-        String item = this.array[index];
+        Integer item = this.array[index];
 
         this.shiftArray(index, -1);
 
         return item;
     }
 
+    private int binarySearch(Integer item){
+        int left = 0;
+        int right = length;
+        int mid = -1;
+
+        while (left < right){
+            mid = (left + right) / 2;
+
+            if(item.equals(array[mid])) return mid;
+            else if(item > array[right]) right = mid;
+            else if(item < array[left]) left = mid;
+        }
+
+        return mid;
+    }
+
     @Override
-    public boolean contains(String item) {
+    public boolean contains(Integer item) {
         this.checkItem(item);
+
+        if (this.sorted) return binarySearch(item) != -1;
 
         for (int i = 0; i < this.length; i++) {
             if(this.array[i].equals(item)){
@@ -134,8 +175,10 @@ public class StringListImpl implements StringList{
     }
 
     @Override
-    public int indexOf(String item) {
+    public int indexOf(Integer item) {
         this.checkItem(item);
+
+        if (this.sorted) return binarySearch(item);
 
         for (int i = 0; i < this.length; i++) {
             if(this.array[i].equals(item)){
@@ -146,7 +189,7 @@ public class StringListImpl implements StringList{
     }
 
     @Override
-    public int lastIndexOf(String item) {
+    public int lastIndexOf(Integer item) {
         this.checkItem(item);
 
         for (int i = this.length - 1; i >= 0; i--) {
@@ -158,14 +201,14 @@ public class StringListImpl implements StringList{
     }
 
     @Override
-    public String get(int index) {
+    public Integer get(int index) {
         this.checkIndex(index);
 
         return this.array[index];
     }
 
     @Override
-    public boolean equals(StringList otherList) {
+    public boolean equals(IntegerList otherList) {
         if (this == otherList){
             return true;
         }
@@ -197,12 +240,12 @@ public class StringListImpl implements StringList{
     public void clear() {
         this.length = 0;
         this.capacity = 1;
-        this.array = new String[capacity];
+        this.array = new Integer[capacity];
     }
 
     @Override
-    public String[] toArray() {
-        String[] result = new String[this.length];
+    public Integer[] toArray() {
+        Integer[] result = new Integer[this.length];
         System.arraycopy(this.array, 0, result, 0, this.length );
         return result;
     }
