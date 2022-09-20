@@ -1,24 +1,27 @@
 package secondCourse.task2_15;
 
 import java.util.NoSuchElementException;
-import java.util.Objects;
 
 public class IntegerListImpl implements IntegerList {
-    private int length;
-    private int capacity;
-    private Integer[] array;
-    private boolean sorted = false;
+    protected int length;
+    protected int capacity;
+    protected Integer[] array;
+    protected boolean sorted = false;
 
-    private void insertionSort(){
+    protected void swap(int index1, int index2){
+        Integer tmp = array[index1];
+        array[index1] = array[index2];
+        array[index2] = tmp;
+    }
+
+    protected void insertionSort(){
         for(int lastUnsortedIndex = length - 1; lastUnsortedIndex > 1; lastUnsortedIndex--){
             int maxIndex = 0;
             for(int q = 1; q <= lastUnsortedIndex; q++)
                 if (array[q] >= array[maxIndex])
                     maxIndex = q;
 
-            Integer tmp = array[maxIndex];
-            array[maxIndex] = array[lastUnsortedIndex];
-            array[lastUnsortedIndex] = tmp;
+            this.swap(maxIndex, lastUnsortedIndex);
         }
     }
 
@@ -27,19 +30,19 @@ public class IntegerListImpl implements IntegerList {
         this.sorted = true;
     }
 
-    private void checkItem(Integer item){
+    protected void checkItem(Integer item){
         if(item == null){
             throw new NullPointerException();
         }
     }
 
-    private void checkIndex(int index){
+    protected void checkIndex(int index){
         if(index >= this.length || index < 0){
             throw new IndexOutOfBoundsException();
         }
     }
 
-    private void expandArray() {
+    protected void expandArray() {
         if(this.length + 1 <= this.capacity) {
             return;
         }
@@ -50,7 +53,7 @@ public class IntegerListImpl implements IntegerList {
         this.array = new_array;
     }
 
-    private void shiftArray(int index, int shift) {
+    protected void shiftArray(int index, int shift) {
         if(shift == 0){
             return;
         }
